@@ -21,6 +21,8 @@
     "rules": {
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
-        "require-jsdoc": "off"
+        "require-jsdoc": "off",
+        "spaced-comment": "warn"
+
     }
 }
