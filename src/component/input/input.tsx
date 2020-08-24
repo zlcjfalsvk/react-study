@@ -8,7 +8,7 @@ function Input() {
     };
 
     const onClick = (e: any) => {
-        alert(ivalue);
+        console.log(ivalue);
     };
 
     return (

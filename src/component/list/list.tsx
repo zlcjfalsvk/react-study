@@ -1,6 +1,13 @@
 import React from "react";
-function List() {
-    return <div>행복</div>;
+
+function List(props: { list: string }) {
+    return (
+        <div>
+            <ul>
+                <li>응가</li>
+            </ul>
+        </div>
+    );
 }
 
 export default List;
