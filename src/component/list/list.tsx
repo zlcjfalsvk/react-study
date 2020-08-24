@@ -1,11 +1,7 @@
 import React from "react";
 
-function List(props: { list: string }) {
-    const datas: { tasks: string[] } = {
-        tasks: ["a", "b", "c"],
-    };
-
-    const todos = datas.tasks.map((task, index) => {
+function List(props: { tasks: string[] }) {
+    const todos = props.tasks.map((task, index) => {
         return <li key={index}>{task}</li>;
     });
 

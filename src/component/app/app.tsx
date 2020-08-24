@@ -3,6 +3,10 @@ import Input from "../input/input";
 import List from "../list/list";
 
 function App() {
+    const datas: { tasks: string[] } = {
+        tasks: ["a", "b", "c"],
+    };
+
     const handleClick = (e: any) => {
         console.log(`부모에서 받음 ${e}`);
     };
@@ -12,7 +16,7 @@ function App() {
             <div>Todo List</div>
             <div>
                 <Input />
-                <List list="b" />
+                <List tasks={datas.tasks} />
             </div>
         </div>
     );
