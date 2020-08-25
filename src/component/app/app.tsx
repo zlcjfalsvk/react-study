@@ -1,22 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "../input/input";
 import List from "../list/list";
 
 function App() {
-    const datas: { tasks: string[] } = {
-        tasks: ["a", "b", "c"],
-    };
+    const tasks: string[] = [];
 
-    const handleClick = (e: any) => {
-        console.log(`부모에서 받음 ${e}`);
+    const [t, setT] = useState(tasks);
+
+    const handleClick = (e: string): void => {
+        tasks.push(e);
+        setT(tasks);
+        console.log(t);
     };
 
     return (
         <div>
             <div>Todo List</div>
             <div>
-                <Input />
-                <List tasks={datas.tasks} />
+                <Input data={e => handleClick(e)} />
+                <List tasks={t} />
             </div>
         </div>
     );

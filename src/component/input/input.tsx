@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Input() {
+function Input({ data }: any) {
     const [ivalue, setIValue] = useState("");
 
     const onEvent = (e: any) => {
@@ -8,7 +8,7 @@ function Input() {
     };
 
     const onClick = (e: any) => {
-        console.log(ivalue);
+        data(ivalue);
     };
 
     return (
