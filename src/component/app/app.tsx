@@ -10,7 +10,6 @@ function App() {
     const handleClick = (e: string): void => {
         tasks.push(e);
         setT(tasks);
-        console.log(t);
     };
 
     return (
@@ -18,7 +17,8 @@ function App() {
             <div>Todo List</div>
             <div>
                 <Input data={e => handleClick(e)} />
-                <List tasks={t} />
+                <List tasks={["a", "b"]} />
+                {/* <List tasks={t} /> */}
             </div>
         </div>
     );
