@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 
 // function List(props: { tasks: string[] }) {
 //     const todos = props.tasks.map((task, index) => {
@@ -14,22 +14,36 @@ import React, { PureComponent } from "react";
 
 // export default List;
 
-interface State {
+interface Props {
     tasks: string[];
 }
 
-export default class List extends PureComponent<State> {
-    todos() {
-        console.log(this.props);
-        return this.props.tasks.map((task, index) => {
-            return <li key={index}>{task}</li>;
-        });
+interface State {}
+
+export default class List extends Component<Props, State> {
+    constructor(props: Props) {
+        super(props);
+
+        this.state = {
+            values: props.tasks,
+        };
     }
+    // todos() {
+    //     console.log(this.props);
+    //     return this.props.tasks.map((task, index) => {
+    //         return <li key={index}>{task}</li>;
+    //     });
+    // }
 
     render() {
+        const { tasks } = this.props;
         return (
             <div>
-                <ul>{this.todos()}</ul>
+                <ul>
+                    {tasks.map((task, i) => (
+                        <li key={i}>{task}</li>
+                    ))}
+                </ul>
             </div>
         );
     }
