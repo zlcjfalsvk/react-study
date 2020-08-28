@@ -1,61 +1,45 @@
-import React, { FunctionComponent, useState, useEffect, useCallback, useMemo, memo } from "react";
+import React from "react";
 import Input from "../input/input";
 import List from "../list/list";
 
 interface Props {}
 
-const App: FunctionComponent<Props> = ({}) => {
-    const tasks: string[] = [];
+interface State {
+    tasks: string[];
+}
 
-    const [t, setT] = useState<string[]>([]);
+class App extends React.Component<Props, State> {
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            tasks: [],
+        };
+        this.handleClick = this.handleClick.bind(this);
+        this.getTasks = this.getTasks.bind(this);
+    }
 
-    useEffect(() => {}, [t]);
+    handleClick(e: string): void {
+        // 이 코드는 컴포넌트를 다시 렌더링하지 않음
+        this.state.tasks.push(e);
+        // 넣어줘야 함
+        this.setState(this.state);
+    }
 
-    const handleClick = useCallback(
-        (e: string): void => {
-            tasks.push(e);
-            console.log(tasks);
-            console.log(tasks);
-            setT(tasks);
-            // console.log(`부모 ${tasks}`);
-        },
-        [tasks],
-    );
+    getTasks(): string[] {
+        console.log(this.state.tasks);
+        return this.state.tasks;
+    }
 
-    return (
-        <div>
-            <div>Todo List</div>
+    render() {
+        return (
             <div>
-                <Input onClick={handleClick} />
-                {/* <List tasks={["a", "b"]} /> */}
-                <List tasks={t} />
+                <div>Todo List</div>
+                <div>
+                    <Input onClick={this.handleClick} />
+                    <List tasks={this.getTasks()} />
+                </div>
             </div>
-        </div>
-    );
-};
-
-// function App() {
-//     const tasks: string[] = [];
-
-//     const [t, setT] = useState(tasks);
-
-//     useEffect(() => {}, [t]);
-
-//     const handleClick = (e: string): void => {
-//         tasks.push(e);
-//         setT(tasks);
-//     };
-
-//     return (
-//         <div>
-//             <div>Todo List</div>
-//             <div>
-//                 <Input data={e => handleClick(e)} />
-//                 {/* <List tasks={["a", "b"]} /> */}
-//                 <List tasks={t} />
-//             </div>
-//         </div>
-//     );
-// }
-
+        );
+    }
+}
 export default App;
