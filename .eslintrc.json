@@ -17,12 +17,16 @@
         "ecmaVersion": 11,
         "sourceType": "module"
     },
-    "plugins": ["react", "@typescript-eslint", "react-hooks"],
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "react-hooks"
+    ],
     "rules": {
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
         "require-jsdoc": "off",
-        "spaced-comment": "warn"
-
+        "spaced-comment": "warn",
+        "no-unused-vars": "warn"
     }
 }
