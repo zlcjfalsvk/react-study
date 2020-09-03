@@ -7,6 +7,7 @@ interface Props {
 interface State {}
 
 export default class List extends Component<Props, State> {
+    // eslint-disable-next-line
     constructor(props: Props) {
         super(props);
     }

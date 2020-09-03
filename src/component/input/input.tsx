@@ -12,9 +12,13 @@ function Input({ onClick }: Props) {
         setIValue(e.target.value);
     };
 
-    const handleClick = () => {
+    const handleClick = (event: CheolEvent.onClick) => {
+        event.preventDefault();
         onClick(ivalue);
-        document.getElementById("todo-list");
+        const iText = (document.getElementById("todo-list") as HTMLElement).getElementsByTagName(
+            "input",
+        )[0];
+        iText.value = "";
     };
 
     return (

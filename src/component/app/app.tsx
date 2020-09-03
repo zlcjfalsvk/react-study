@@ -26,7 +26,6 @@ class App extends React.Component<Props, State> {
     }
 
     getTasks(): string[] {
-        console.log(this.state.tasks);
         return this.state.tasks;
     }
 
