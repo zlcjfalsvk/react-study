@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CheolEvent } from "../../types/types";
 
 interface Props {
     onClick: (value: string) => void;
@@ -7,18 +8,21 @@ interface Props {
 function Input({ onClick }: Props) {
     const [ivalue, setIValue] = useState("");
 
-    const onEvent = (e: any) => {
+    const onEvent = (e: CheolEvent.onChange) => {
         setIValue(e.target.value);
     };
 
     const handleClick = () => {
         onClick(ivalue);
+        document.getElementById("todo-list");
     };
 
     return (
         <div>
-            <input type="text" placeholder="뭐 할거냐" onChange={onEvent} />
-            <button onClick={handleClick}>input</button>
+            <form id="todo-list">
+                <input type="text" placeholder="뭐 할거냐" onChange={onEvent} />
+                <button onClick={handleClick}>input</button>
+            </form>
         </div>
     );
 }
