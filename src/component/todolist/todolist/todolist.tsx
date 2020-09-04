@@ -8,7 +8,7 @@ interface State {
     tasks: string[];
 }
 
-class App extends React.Component<Props, State> {
+class Todolist extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
@@ -41,4 +41,4 @@ class App extends React.Component<Props, State> {
         );
     }
 }
-export default App;
+export default Todolist;
