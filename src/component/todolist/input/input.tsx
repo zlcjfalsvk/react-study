@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CheolEvent } from "../../types/types";
+import { CheolEvent } from "types/types";
 
 interface Props {
     onClick: (value: string) => void;
